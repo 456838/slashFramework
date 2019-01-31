@@ -3,10 +3,12 @@ package com.salton123.cargo.ui.fragment.second;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.salton123.base.FragmentDelegate;
 import com.salton123.cargo.R;
 import com.salton123.cargo.ui.fragment.BaseMainFragment;
 import com.salton123.cargo.ui.fragment.second.child.DetailFragment;
 import com.salton123.cargo.ui.fragment.second.child.ViewPagerFragment;
+import com.salton123.register.RegisterComp;
 
 
 public class ZhihuSecondFragment extends BaseMainFragment {
@@ -38,8 +40,8 @@ public class ZhihuSecondFragment extends BaseMainFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if (findChildFragment(ViewPagerFragment.class) == null) {
-            loadRootFragment(R.id.fl_second_container, ViewPagerFragment.newInstance());
+        if (findChildFragment(RegisterComp.class) == null) {
+            loadRootFragment(R.id.fl_second_container, FragmentDelegate.newInstance(RegisterComp.class));
         }
     }
 

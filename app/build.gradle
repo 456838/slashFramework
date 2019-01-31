@@ -14,6 +14,9 @@ android {
         applicationId "com.salton123.cargo"
         versionCode 1
         versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
     }
     //recommend
     dexOptions {
@@ -62,5 +65,5 @@ dependencies {
     implementation "com.android.support:design:${rootProject.ext.dependVersion.androidSupportSdkVersion}"
     implementation "com.android.support:cardview-v7:${rootProject.ext.dependVersion.androidSupportSdkVersion}"
     api project(":base")
-
+    implementation 'cn.bmob.android:bmob-sdk:3.6.9'
 }
