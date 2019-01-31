@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="item_selecto_nor">#00000000</color>
+    <color name="item_selecto_pre">#ff0febff</color>
+    <color name="white">#ffffffff</color>
+    <color name="actionbar_bg">#ffeeeeee</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="tab_unselect">#c9c9c9</color>
     <color name="tab_select">#387cfd</color>
+    <color name="bg_btn">#dadada</color>
     <color name="bg_app">#F1F1F1</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.salton123.cargo;
+package com.salton123.bookmark;
 
 import com.salton123.base.ApplicationBase;
 

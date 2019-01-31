@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.salton123.cargo">
+    package="com.salton123.bookmark">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
@@ -30,7 +30,7 @@
         android:required="true" />
 
     <application
-        android:name=".XApp"
+        android:name="com.salton123.bookmark.XApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -38,27 +38,14 @@
         android:theme="@style/AppTheme">
 
 
-        <!--<activity-->
-            <!--android:name=".SplashActivity"-->
-            <!--android:theme="@style/AppThemeMain">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
-
         <activity
-        android:name=".SplashActivity"
-        android:theme="@style/AppThemeMain">
-
-        </activity>
-        <activity android:name=".ui.activity.MainActivity" android:theme="@style/AppTheme">
+            android:name=".ui.activity.BrowserMainAty"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
 
     </application>
