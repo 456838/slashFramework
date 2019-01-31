@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+// 加载config.properties文件
+Properties configProp = new Properties()
+configProp.load(new FileInputStream(file("$rootDir/config.properties")))
+
+android {
+    compileSdkVersion "${rootProject.ext.android.compileSdkVersion}" as Integer
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion as Integer
+        targetSdkVersion rootProject.ext.android.targetSdkVersion as Integer
+        applicationId "com.salton123.cargo"
+        versionCode 1
+        versionName "1.0"
+    }
+    //recommend
+    dexOptions {
+        jumboMode = true
+    }
+
+    signingConfigs {
+        release {
+            keyAlias configProp['keystore.keyAlias']
+            keyPassword configProp['keystore.keyPassword']
+            storeFile file(configProp['keystore.storeFile'])
+            storePassword configProp['keystore.storePassword']
+            // 使用旧版签名，禁用V2版签名模式
+            v2SigningEnabled false
+        }
+    }
+
+    buildTypes {
+        debug {
+            versionNameSuffix '00'
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.buildType == "release") {
+                outputFileName = "oppo_f15" + "_release_time_" + releaseTime() + ".apk"
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:multidex:1.0.2"
+    implementation 'com.github.yyued:SVGAPlayer-Android:2.3.0'
+    implementation "com.airbnb.android:lottie:2.2.0"
+    implementation "com.android.support:design:${rootProject.ext.dependVersion.androidSupportSdkVersion}"
+    implementation "com.android.support:cardview-v7:${rootProject.ext.dependVersion.androidSupportSdkVersion}"
+    api project(":base")
+
+}
